@@ -29,6 +29,8 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          # 关键：不持久化 GITHUB_TOKEN，否则会覆盖下面 push 用的 PAT
+          persist-credentials: false
 
       - name: 创建 Node 环境
         uses: actions/setup-node@v5
